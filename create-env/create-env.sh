@@ -16,7 +16,7 @@ autogrpName="chandu-asg"
 
 #Load Instance
 
-aws ec2 run-instances --image-id $imageID --key-name $keyName --security-group-ids $securityID --client-token $1 --instance-type $instanceType --user-data $scriptfile --count $instanceCount
+aws ec2 run-instances --image-id $imageID --key-name $keyName --security-group-ids $securityID --client-token $1 --instance-type $instanceType --user-data $scriptfile --placement AvailabilityZone=us-west-2b --count $instanceCount
 
 getinstanceID=`aws ec2 describe-instances --filters "Name=client-token,Values=$1" --query 'Reservations[*].Instances[].InstanceId'`
 
