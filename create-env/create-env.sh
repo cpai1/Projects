@@ -3,7 +3,7 @@
 scriptfile="file://installapp.sh"
 securityID="sg-8f6fa4f6"
 imageID="ami-06b94666"
-subnetID="subnet-2b93d25d"
+subnetID="subnet-2b93d25d"	
 keyName="chandu"
 instanceType="t2.micro"
 Zone="us-west-2b"
@@ -31,12 +31,9 @@ aws elb create-load-balancer --load-balancer-name $loadBalancerName --listeners 
 aws elb register-instances-with-load-balancer --load-balancer-name $loadBalancerName --instances $getinstanceID
 
 #Auto Scaling
-
 aws autoscaling create-launch-configuration --launch-configuration-name $autoLaunchConfig --key-name $keyName --image-id $imageID --security-groups $securityID --instance-type $instanceType --user-data $scriptfile
 
 aws autoscaling create-auto-scaling-group --auto-scaling-group-name $autogrpName --launch-configuration-name $autoLaunchConfig --availability-zone $Zone --load-balancer-names $loadBalancerName --max-size 5 --min-size 0 --desired-capacity 1
-
-aws autoscaling attach-instances --instance-ids $getinstanceID  --auto-scaling-group-name $autogrpName
 
 aws autoscaling attach-load-balancers --auto-scaling-group-name $autogrpName --load-balancer-names $loadBalancerName
 
