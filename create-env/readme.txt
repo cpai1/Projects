@@ -1,1 +1,3 @@
-# please enter the client-token while executing the script file Example: sh ./create-env.sh chandra   (Any random name or numbers)
+# please enter the below values in the command line
+
+sh ./create-env.sh ami-06b94666 chandu sg-8f6fa4f6 chandu-config 3
