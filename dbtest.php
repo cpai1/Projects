@@ -9,12 +9,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-
-   # id INT NOT NULL AUTO_INCREMENT,
-   # name VARCHAR(200) NOT NULL,
-   # age INT NOT NULL,
-
-/* Prepared statement, stage 1: prepare */
+/* Insert statement */
 $stmt =$db->stmt_init();
 $stmt->prepare("INSERT INTO student (name,age) VALUES(?, ?)");
 foreach($myarray as $row)
