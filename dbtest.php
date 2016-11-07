@@ -1,4 +1,26 @@
 <?php
+require 'vendor/autoload.php';
+
+use Aws\Rds\RdsClient;
+$client = RdsClient::factory(array(
+'region'  => 'us-west-2'
+));
+
+
+
+$result = $client->describeDBInstances(array(
+    'DBInstanceIdentifier' => 'itmo-chandudb',
+));
+
+
+$endpoint = ""; 
+
+
+foreach ($result->getPath('DBInstances/*/Endpoint/Address') as $ep) {
+    // Do something with the message
+    echo "============". $ep . "================";
+    $endpoint = $ep;
+}
 
 echo "begin database";
 $link = mysqli_connect("AWS URL *.us-west-2.rds.amazonaws.com","chandudb","chandu123","School") or die("Error " . mysqli_error($link));
