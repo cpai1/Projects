@@ -21,7 +21,7 @@ autogrpName="chandu-asg"
 
 #Load Instance
 
-aws ec2 run-instances --image-id $1 --key-name $2 --security-group-ids $3 --instance-type $instanceType --user-data $scriptfile --placement AvailabilityZone=us-west-2b --count $5
+aws ec2 run-instances --image-id $1 --key-name $2 --security-group-ids $3 --instance-type $instanceType --user-data $scriptfile --placement AvailabilityZone=us-west-2b --count $5 --iam-instance-profile Name=$6
 
 sleep 25
 
