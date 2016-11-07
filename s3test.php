@@ -6,30 +6,30 @@ $s3 = new Aws\S3\S3Client([
     'version' => 'latest',
     'region'  => 'us-west-2'
 ]);
-$bucket='itmo-chan';
-$resultput= $s3->putObject(array(
-    'Bucket' => $bucket,
-    'Key' => 'switchonarex.png',
-    'Body' => 'Hello!',
-	'region'  => 'us-west-2',
-	'ACL'=>'public-read'
-));
-
-echo $result['ObjectURL'] . "\n";
-$display=$resultput['ObjectURL'];
 $result = $s3->listBuckets();
 
 foreach ($result['Buckets'] as $bucket) {
 echo $bucket['Name'] . "\n";
 }
 $array = $result->toArray();
+$bucket='itmo-chan';
+$Imagepath='/var/www/html/switchonarex.png';
+
+$resulturl= $s3->putObject(array(
+    'Bucket' => $bucket,
+    'Key' => 'switchonarex.png',
+    'Body' => 'Hello!',
+	'SourceFile' => $Imagepath,
+	'region'  => 'us-west-2',
+	'ACL'=>'public-read'
+));
+
+$display=$resulturl['ObjectURL'];
 ?>
 
 <html>
-<head>
-<title>Image</title>
-</head>
 <body>
-<img src= "<? echo $display; ?>" >
+<h1><?php echo $display; ?><h1>
+<img src="<?php echo $display; ?>" height="500" width="600">
 </body>
 </html>
