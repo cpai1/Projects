@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dbname="Student"
+dbname="School"
 dbidentifier="itmo-chandudb"
 dbsgrp="sg-8f6fa4f6"
 dbinstance="db.t2.micro"
