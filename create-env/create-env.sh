@@ -1,14 +1,15 @@
 #!/bin/bash
 
-if [ "$#" -eq 5 ]
+if [ "$#" -eq 6 ]
 
 then
 
 echo "Enter the image ID : $1"
 echo "Enter the key name : $2"
 echo "Enter the security group ID : $3"
-echo "How many Instances : $5"
+echo "How many Instances : $6"
 echo "Enter the Auto scaling launch configuration name : $4"
+echo "Enter the IAM role : $5"
 
 
 scriptfile="file://installapp.sh"
@@ -21,7 +22,7 @@ autogrpName="chandu-asg"
 
 #Load Instance
 
-aws ec2 run-instances --image-id $1 --key-name $2 --security-group-ids $3 --instance-type $instanceType --user-data $scriptfile --placement AvailabilityZone=us-west-2b --count $5 --iam-instance-profile Name=$6
+aws ec2 run-instances --image-id $1 --key-name $2 --security-group-ids $3 --instance-type $instanceType --user-data $scriptfile --placement AvailabilityZone=us-west-2b --iam-instance-profile Name=$5 --count $6
 
 sleep 25
 
