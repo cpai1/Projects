@@ -21,7 +21,7 @@ if(isset($_FILES['userfile'])){
       $expensions= array("jpeg","jpg","png");
 
       if(in_array($file_ext,$expensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file",
+         $errors[]="extension not allowed, please choose a JPEG or PNG file";
       }
 
       if($file_size > 2097152){
