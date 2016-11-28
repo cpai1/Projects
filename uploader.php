@@ -4,7 +4,7 @@ session_start();
 require 'vendor/autoload.php';
 require 'connect.php';
 
-if ((isset($_SESSION['link'])) && (isset($_SESSION['path'])) && (isse
+if ((isset($_SESSION['link'])) && (isset($_SESSION['path'])) && (isset($_SESSION['username']))){
 $filelink=($_SESSION['link']);
 
 $filepath=($_SESSION['path']);
