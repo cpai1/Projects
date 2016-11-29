@@ -1,10 +1,9 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])){
 $username = $_SESSION['username'];
 echo "<center><h1>WELCOME    " . $username . "</h1></center>";
 echo "<center><h2>This is the Members Area</h2></center>";
-}
+$temp = ("cpai1@hawk.iit.edu");
 ?>
 
 <html>
@@ -35,11 +34,18 @@ h3 {
 </head>
 <body>
 <h3> Please Select the Below Links</h3>
+<?php if ($username == $temp): ?>
 <ul>
   <li><a href="gallery.php">Gallery</a></li><br>
   <li><a href="upload.php">Upload Images</a></li><br>
   <li><a href="admin.php">Control the Access</a></li><br>
 
 </ul>
+<?php else: ?>
+<ul>
+  <li><a href="gallery.php">Gallery</a></li><br>
+  <li><a href="upload.php">Upload Images</a></li><br>
+</ul>
+<?php endif ?>
 </body>
 </html>
