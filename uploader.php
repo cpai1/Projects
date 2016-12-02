@@ -64,7 +64,7 @@ $query = $link->prepare("INSERT INTO items(email,phone,s3rawurl,s3finishedurl,st
 )");
 
 $email=$username;
-$phone='4696644548';
+$phone='14696644548';
 $s3rawurl=$url;
 $s3finishedurl='';
 $status=0;
