@@ -16,7 +16,7 @@ $res = $link->use_result();
 
 while ($row = $res->fetch_assoc()) {
 
-    echo "<img src =\" " . $row['s3rawurl'] . "\" />";
+    echo "<img src =\" " . $row['s3rawurl'] ." ". $row['s3finishedurl'] . "\" />";
 echo $row['id'] . "Email: " . $row['email'];
 }
 $link->close();
