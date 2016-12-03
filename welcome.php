@@ -4,6 +4,11 @@ $username = $_SESSION['username'];
 echo "<center><h1>WELCOME    " . $username . "</h1></center>";
 echo "<center><h2>This is the Members Area</h2></center>";
 $temp = ("cpai1@hawk.iit.edu");
+$temp2=("hajek@iit.edu");
+$flag=$_POST['flag'];
+
+$_SESSION['flag']=$flag;
+echo "the flag is set to". $flag;
 ?>
 
 <html>
@@ -41,10 +46,14 @@ h3 {
   <li><a href="admin.php">Control the Access</a></li><br>
 
 </ul>
-<?php else: ?>
+<?php elseif(($username == $temp2) && $_SESSION['flag'] == 1): ?>
 <ul>
   <li><a href="gallery.php">Gallery</a></li><br>
   <li><a href="upload.php">Upload Images</a></li><br>
+</ul>
+<?php else:?>
+<ul>
+  <li><a href="gallery.php">Gallery</a></li><br>
 </ul>
 <?php endif ?>
 </body>
