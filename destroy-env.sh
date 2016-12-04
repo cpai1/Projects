@@ -1,4 +1,4 @@
-#!/bin/bash
+	
 
 #load balancer name
 lbname=`aws elb describe-load-balancers --query 'LoadBalancerDescriptions[*].{LbName:LoadBalancerName}'`
@@ -37,3 +37,7 @@ aws elb delete-load-balancer --load-balancer-name $lbname
 
 #terminating the instances
 aws ec2 terminate-instances --instance-ids $runInstanceID
+
+#Destroying  the database
+rdsinstance=`aws rds describe-db-instances --query 'DBInstances[*].DBInstanceIdentifier' --output text`
+aws rds delete-db-instance --db-instance-identifier $rdsinstance --skip-final-snapshot
