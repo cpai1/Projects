@@ -26,5 +26,5 @@ iptfile --placement AvailabilityZone=us-west-2b --iam-instance-profile Name=$4 -
 
 
 
-crontab -l | { cat; echo "* * * * * php /home/ubuntu/edit.php"; } | crontab -
+crontab -l | { cat; echo "* * * * * php /var/www/html/edit.php >> /tmp/edit.log"; } | crontab -
 
