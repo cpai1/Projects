@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 echo "</br>";
 
 
@@ -66,7 +66,7 @@ $objectrule = $s3->putBucketLifecycleConfiguration([
 ]);
 
 $link->close();
-echo "Congratulations backup your database done!";
+echo "Backup database done"
 ?>
 
 
