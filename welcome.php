@@ -56,5 +56,6 @@ h3 {
   <li><a href="gallery.php">Gallery</a></li><br>
 </ul>
 <?php endif ?>
+Click here to Logout <a href = "logout.php" tite = "Logout">Page.
 </body>
 </html>
