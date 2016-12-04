@@ -1,12 +1,12 @@
 #!/bin/bash
 
-dbname="School"
-dbidentifier="itmo-chandudb"
+dbname="login"
+dbidentifier="itmo-chandu"
 dbsgrp="sg-8f6fa4f6"
 dbinstance="db.t2.micro"
 dbengine="mysql"
-muser="chandudb"
-mpassword="chandu123"
+muser="controller"
+mpassword="iloveuchandu"
 storage="5"
 dbzone="us-west-2b"
 
