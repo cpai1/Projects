@@ -18,8 +18,12 @@ sudo curl -sS https://getcomposer.org/installer | php
 sudo php composer.phar require aws/aws-sdk-php
 echo "composer created"
 
-
-
 echo "vendor file moved successfully"
 
+cd /
+sudo cp -r vendor/ /var/www/html
+
 sudo git clone git@github.com:illinoistech-itm/cpai1.git
+
+cp -r cpai1/edit.php  /var/www/html
+
