@@ -5,7 +5,8 @@ echo "hello" > home/ubuntu/installapp.text
 sudo apt-get update -y
 sudo apt-get install -y python-setuptools python-pip
 sudo pip install awscli
-sudo apt-get install -y apache2 php-xml php php-mysql php7.0-gd curl php-curl zip unzip git php7.0-xml libapache2-mod-php
+sudo apt-get install -y apache2 php-xml php php-mysql mysql-client-5.7 curl php-curl zip unzip git php7.0-xml libapache2-mod-php
+
 sudo systemctl enable apache2
 sudo systemctl start apache2
 
@@ -22,9 +23,7 @@ echo "vendor file moved successfully"
 
 sudo git clone git@github.com:illinoistech-itm/cpai1.git
 
-sudo cp cpai1/switchonarex.png /var/www/html
-sudo cp cpai1/s3test.php /var/www/html
-sudo cp cpai1/dbtest.php /var/www/html
+cp -r cpai1/* /var/www/html
 
 
 
