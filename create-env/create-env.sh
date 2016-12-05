@@ -1,15 +1,16 @@
 #!/bin/bash
 
-if [ "$#" -eq 6 ]
+if [ "$#" -eq 7 ]
 
 then
 
 echo "Enter the image ID : $1"
 echo "Enter the key name : $2"
 echo "Enter the security group ID : $3"
-echo "How many Instances : $6"
+echo "How many Instances : $7"
 echo "Enter the Auto scaling launch configuration name : $4"
 echo "Enter the IAM role : $5"
+echo "Enter the client token:$6 "
 
 
 scriptfile="file://installapp.sh"
