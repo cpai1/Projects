@@ -22,11 +22,11 @@ autogrpName="chandu-asg"
 
 #Load Instance
 
-aws ec2 run-instances --image-id $1 --key-name $2 --security-group-ids $3 --instance-type $instanceType --user-data $scriptfile --placement AvailabilityZone=us-west-2b --iam-instance-profile Name=$5 --count $6
+aws ec2 run-instances --image-id $1 --key-name $2 --security-group-ids $3 --instance-type $instanceType --user-data $scriptfile --placement AvailabilityZone=us-west-2b --iam-instance-profile Name=$5 --client-token $6 --count $7
 
 sleep 25
 
-getinstanceID=`aws ec2 describe-instances --query 'Reservations[*].Instances[*].[State.Name, InstanceId]' --output text | grep running | awk '{print $2}'`
+getinstanceID=`aws ec2 describe-instances --filters "Name=client-token,Values=$6" --query 'Reservations[*].Instances[].[InstanceId]'`
 
 echo  $getinstanceID
 

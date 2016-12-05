@@ -1,4 +1,4 @@
-	
+#!/bin/bash	
 
 #load balancer name
 lbname=`aws elb describe-load-balancers --query 'LoadBalancerDescriptions[*].{LbName:LoadBalancerName}'`
@@ -24,7 +24,7 @@ aws autoscaling delete-launch-configuration --launch-configuration-name $asglcna
 sleep 30
 
 #Retrieving InstanceId
-runInstanceID=`aws ec2 describe-instances --query 'Reservations[*].Instances[*].[State.Name, InstanceId]' --output text | grep running | awk '{print $2}'`
+runInstanceID=`aws ec2 describe-instances --filters "Name=client-token,Values=$1" --query 'Reservations[*].Instances[].[InstanceId]'`
 echo $runInstanceID
 
 #deregister the instances
