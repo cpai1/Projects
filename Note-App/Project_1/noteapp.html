@@ -1,0 +1,49 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Note App</title>
+
+		<link rel="stylesheet" type="text/css" href="noteapp.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	    <script type="text/javascript" src="dbscript.js"></script>
+</head>	
+<body>
+<div class="container" >
+<header class="note_header">
+			<section class="header_container">
+					<div class="menu_container">
+						<div class="colour_logo"><img src="images/colour.jpg" class="color_img" ></div>
+						</div>
+					<center><div class="logo"><img src="images/notelogo.jpg"></div></center>
+					<div class="menu_container">
+						<div class="colour_logo"><img src="images/colour.jpg" class="color_img"></div>
+					</div>
+				</section>
+			</header>
+
+	<section class="note_writing" id="large-header">        
+         <div  style="width:90% !important;">
+				<div class="content" style="width:70%;position:relative;top:100px;float:left">
+					<h1>Notes</h1>
+					<span class="input input--yoshiko"  >
+						<input class="input__field input__field--yoshiko" type="text" id="title" placeholder="Title" style="width:556px;border:4px solid #FFCC66;" />
+					</span>
+					<span class="input input--yoshiko">
+						<textarea class="input__field input__field--yoshiko"  id="descript" rows="5" placeholder="Description" style="margin-right:15%;margin-left:15%;border:4px solid #FFCC66;" /></textarea>
+					</span>
+					<div class="btn btn-trigger" id="button1">Add Note</div>
+               	</div>
+				<div class="content"  style="width:20%; position: relative;top: 100px;float:left">
+                 <input class="input__field input__field--yoshiko" type="Date" id="dat"  style="width:200px;border:4px solid #FFCC66;margin-top:65%" />
+                 <img src="images/ideas.jpg"style="width:200px;margin-left:95%;">
+			</div>
+		   </div>
+		</section>
+	</div>
+	 <div style="width:100%" id="listOfNotes" class="display">
+<div id="list-wrapper"></div>
+
+</div>
+</body>
+</html>
