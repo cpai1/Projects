@@ -1,0 +1,31 @@
+extend layout
+
+block content
+  h1 Note App
+  h3 Here is a list of your notes.
+  p
+    a#delete.btn.btn-default(hrer="#") Delete
+    |  
+    a#add.btn.btn-default(href="/notes/add") Add new
+  table.table
+    thead
+      tr
+        th 
+        th Title
+        th Description
+        
+    tbody
+      if !notes.length
+        tr
+          td(colspan=4) You should add a note
+      else
+        each note in notes
+          tr
+            td
+              input(type="checkbox", id=note.id)
+            td
+              a(href="/notes/#{note.id}") #{note.title}
+            td #{note.desc}
+            td 
+              a(href="/api/notes/#{note.id}") click to view the JSON Data
+            

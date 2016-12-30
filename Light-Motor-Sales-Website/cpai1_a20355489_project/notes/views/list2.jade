@@ -1,0 +1,29 @@
+extend layout
+
+block content
+  h1 Car
+  h3 Here is a list of your car.
+  p
+    a#delete.btn.btn-default(hrer="#") Delete
+    |  
+    a#add.btn.btn-default(href="/cars/add2") Add new
+  table.table
+    thead
+      tr
+        th 
+        th Name
+        th Value
+    tbody
+      if !cars.length
+        tr
+          td(colspan=4) You should add a car
+      else
+        each car in cars
+          tr
+            td
+              input(type="checkbox", id=car.id)
+            td
+              a(href="/cars/#{car.id}") #{car.name}
+            td #{car.value}
+            
+            
